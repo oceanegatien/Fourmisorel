@@ -11,7 +11,8 @@ var vegetal = {
 	icone : "V",
 	x: "",
 	y: "",
-	css: "green"
+	css: "green",
+	attack:"0",
 	
 	
 };
@@ -20,7 +21,8 @@ var beteHerbivore = {
 	icone : "BH",
 	x: "",
 	y: "",
-	css:"orange"
+	css:"orange",
+	attack: "1",
 	
 };
 var beteCarnivore = {
@@ -28,7 +30,8 @@ var beteCarnivore = {
 	icone : "BC",
 	x: "",
 	y: "",
-	css:"red"
+	css:"red",
+	attack:"2",
 	
 };
 var cailloux = {
@@ -36,7 +39,8 @@ var cailloux = {
 	icone : "C",
 	x: "",
 	y: "",
-	css: "grey"
+	css: "grey",
+	attack:"3",
 	
 };
 
