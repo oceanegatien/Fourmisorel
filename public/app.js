@@ -22,7 +22,7 @@ function GenerateTable (X, Y) {
 		}          
 	}  
 
-	RecupererUnAnimal(); 
+	 
 };  
 
 
@@ -64,6 +64,18 @@ function RecupererUnAnimal() {
 }
 
 
-GenerateTable(X, Y);
 //RecupererUnAnimal();
+	GenerateTable(X, Y);
 
+var interval = setInterval(function(){ 
+	console.log("Hello");
+	RecupererUnAnimal(); 
+
+
+}, 500);
+
+
+$("#stop").click(function () {
+	clearInterval(interval);
+	
+})
