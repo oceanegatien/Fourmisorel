@@ -9,6 +9,23 @@ var Y = 10;
 
 
 
+
+
+
+// Génération de la grille  
+function GenerateTable (X, Y) {     
+	for (var i = 0; i < X; i++) {                   
+		$("#Grille").append( '<tr data-id="'+i+'"></tr>');                     
+		for (var j = 0; j < Y; j++) {                       
+			$("#Grille tr:last-child").append( '<td data-id="'+i+'/'+j+'"></td>' );
+
+		}          
+	}  
+
+	RecupererUnAnimal(); 
+};  
+
+
 function RecupererUnAnimal() {
 	$.ajax({
 
@@ -24,11 +41,18 @@ function RecupererUnAnimal() {
 			fourmi = res;
 			fourmi.x = Math.round(Math.random()*X);
 			fourmi.y = Math.round(Math.random()*Y);
-			console.log(fourmi)
-			for (var i = 0; i <= X; i++) {
-				for (var j = 0; j <= Y; j++) {
+			console.log(fourmi);
+			
+			for (var i = 0; i < X; i++) {
+				for (var j = 0; j < Y; j++) {
+
+
 					if (i === fourmi.x && j === fourmi.y){
-						$("tr td").html(fourmi.icone);
+					console.log($('#Grille tr').find('[data-id="'+i+'/'+j+'"]'));
+						console.log('ca passe');
+						var coord = $('#Grille tr').find('[data-id="'+i+'/'+j+'"]')
+
+						$(coord).html(fourmi.icone);
 					}
 				}
 			}
@@ -38,20 +62,6 @@ function RecupererUnAnimal() {
 		console.log("erreur serveur");
 	});
 }
-
-
-
-// Génération de la grille  
-function GenerateTable (X, Y) {    
-	 RecupererUnAnimal();   
-	 console.log(fourmi); 
-	for (var i = 0; i < X; i++) {                   
-		$("#Grille").append( "<tr></tr>" );                     
-		for (var j = 0; j < Y; j++) {                       
-			$("#Grille tr:last-child").append( '<td></td>' );                 
-		}          
-	}  
-};  
 
 
 GenerateTable(X, Y);
