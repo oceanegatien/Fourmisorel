@@ -1,12 +1,50 @@
-console.log('hello');
-//RecupererUnAnimals();
-
 var fourmi;
+var X = 10;
+var Y = 10;
 
-//gereratePositionAlea();
+
+
+
+
+
+
+
+function RecupererUnAnimal() {
+	$.ajax({
+
+		url : "http://localhost:3000/getrandomobject",
+		type: "get",
+
+
+	}).done(function(res) {
+		if (res === null || undefined) {
+			console.log("erreur");
+
+		}else{
+			fourmi = res;
+			fourmi.x = Math.round(Math.random()*X);
+			fourmi.y = Math.round(Math.random()*Y);
+			console.log(fourmi)
+			for (var i = 0; i <= X; i++) {
+				for (var j = 0; j <= Y; j++) {
+					if (i === fourmi.x && j === fourmi.y){
+						$("tr td").html(fourmi.icone);
+					}
+				}
+			}
+
+		}
+	}).fail(function(err) {
+		console.log("erreur serveur");
+	});
+}
+
+
 
 // Génération de la grille  
-function GenerateTable ( X, Y ) {           
+function GenerateTable (X, Y) {    
+	 RecupererUnAnimal();   
+	 console.log(fourmi); 
 	for (var i = 0; i < X; i++) {                   
 		$("#Grille").append( "<tr></tr>" );                     
 		for (var j = 0; j < Y; j++) {                       
@@ -16,50 +54,6 @@ function GenerateTable ( X, Y ) {
 };  
 
 
+GenerateTable(X, Y);
+//RecupererUnAnimal();
 
-
-
-
-
-
-function RecupererUnAnimals() {
-	$.ajax({
-
-		url : "http://localhost:3000/getrandomobject",
-		type: "get",
-		//dataType: "html",
-
-
-	}).done(function(res) {
-		console.log(res);
-		fourmi = res;
-		console.log(fourmi);
-		gereratePositionAlea();
-		//return fourmi;
-	});
-}
-
-
-
-function gereratePositionAlea(){
-	
-	fourmi.x = Math.round(Math.random()*4);
-	fourmi.y = Math.round(Math.random()*4);
-	// fourmi.x = x;
-	// fourmi.y = y;
-	// var placement = [x, y];
-	// console.log(placement);	
-	// var fourmi = {
-	// 	fourmi : RecupererUnAnimals(),
-	// 	x : x,
-	// 	y : y,
-	// };
-	//console.log(fourmi);
-
-
-}
-
-
-
-GenerateTable(4, 4);
-RecupererUnAnimals();
