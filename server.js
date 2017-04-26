@@ -8,16 +8,24 @@ app.use(express.static('public'));
 
 var vegetal = {
 	icone : "V",
+	x: "",
+	y: ""
 	
 };
 var beteHerbivore = {
 	icone : "BH",
+	x: "",
+	y: ""
 };
 var beteCarnivore = {
 	icone : "BC",
+	x: "",
+	y: ""
 };
 var cailloux = {
 	icone : "C",
+	x: "",
+	y: ""
 };
 
 var animals = [vegetal, beteHerbivore, beteCarnivore, cailloux];
