@@ -5,25 +5,18 @@ var Y = 10;
 
 
 
-
-
-
-
-
-
-
 // Génération de la grille  
 function GenerateTable (X, Y) {     
 	for (var i = 0; i < X; i++) {                   
 		$("#Grille").append( '<tr data-id="'+i+'"></tr>');                     
 		for (var j = 0; j < Y; j++) {                       
-			$("#Grille tr:last-child").append( '<td data-id="'+i+'/'+j+'"></td>' );
+			$("#Grille tr:last-child").append( '<td data-id="'+i+'/'+j+'">&nbsp;</td>' );
 
 		}          
 	}  
 
 	 
-};  
+}
 
 
 function RecupererUnAnimal() {
@@ -46,14 +39,11 @@ function RecupererUnAnimal() {
 			for (var i = 0; i < X; i++) {
 				for (var j = 0; j < Y; j++) {
 
-
 					if (i === fourmi.x && j === fourmi.y){
-					console.log($('#Grille tr').find('[data-id="'+i+'/'+j+'"]'));
-						console.log('ca passe');
 						var coord = $('#Grille tr').find('[data-id="'+i+'/'+j+'"]')
-
-						$(coord).html(fourmi.icone);
+							$(coord).html(fourmi.icone).css("background-color", fourmi.css);
 					}
+
 				}
 			}
 
@@ -64,8 +54,12 @@ function RecupererUnAnimal() {
 }
 
 
-//RecupererUnAnimal();
-	GenerateTable(X, Y);
+
+
+
+//--action !
+
+GenerateTable(X, Y);
 
 var interval = setInterval(function(){ 
 	console.log("Hello");
@@ -78,4 +72,4 @@ var interval = setInterval(function(){
 $("#stop").click(function () {
 	clearInterval(interval);
 	
-})
+});

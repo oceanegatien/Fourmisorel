@@ -7,25 +7,37 @@ app.use(express.static('public'));
 
 
 var vegetal = {
+	name : "vegetal",
 	icone : "V",
 	x: "",
-	y: ""
+	y: "",
+	css: "green"
+	
 	
 };
 var beteHerbivore = {
+	name: "beteHerbivore",
 	icone : "BH",
 	x: "",
-	y: ""
+	y: "",
+	css:"orange"
+	
 };
 var beteCarnivore = {
+	name:"beteCarnivore",
 	icone : "BC",
 	x: "",
-	y: ""
+	y: "",
+	css:"red"
+	
 };
 var cailloux = {
+	name: "cailloux",
 	icone : "C",
 	x: "",
-	y: ""
+	y: "",
+	css: "grey"
+	
 };
 
 var animals = [vegetal, beteHerbivore, beteCarnivore, cailloux];
